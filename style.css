@@ -1,0 +1,1444 @@
+/* ============================================
+   VALENTINE MEGA WOW - STYLES COMPLETS
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ============ PARTICULES ============ */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ============ CONTAINER ============ */
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============ STEPS ============ */
+.step {
+    display: none;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.step.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ============ ÉTAPE 1: LOGIN ============ */
+.heart-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.animate-heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+}
+
+.glowing-text {
+    font-size: 48px;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 40px rgba(255, 255, 255, 0.6);
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+    50% { text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 182, 193, 0.8); }
+}
+
+.subtitle {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#secret-code {
+    padding: 15px 20px;
+    font-size: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#secret-code::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#secret-code:focus {
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+}
+
+.error-msg {
+    color: #ff6b6b;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* ============ ANIMATION CINÉMATIQUE ============ */
+.cinematic-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cinematic-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.cinematic-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.cinematic-subtitle {
+    font-size: 24px;
+    opacity: 0.8;
+    animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loading-bar {
+    width: 300px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #f093fb, #f5576c);
+    width: 0%;
+    animation: loadProgress 3s ease-in-out forwards;
+}
+
+@keyframes loadProgress {
+    to { width: 100%; }
+}
+
+/* ============ SECTIONS COMMUNES ============ */
+.section-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.instruction {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.success-animation {
+    font-size: 36px;
+    text-align: center;
+    margin: 30px 0;
+    animation: successPulse 1s ease infinite;
+}
+
+@keyframes successPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* ============ ÉTAPE 2: PUZZLES ============ */
+.puzzle-level-indicator {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.puzzle-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.puzzle-board {
+    display: grid;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.puzzle-board.level-1 {
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+}
+
+.puzzle-board.level-2 {
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+}
+
+.puzzle-board.level-3 {
+    grid-template-columns: repeat(5, 85px);
+    grid-template-rows: repeat(5, 85px);
+}
+
+.puzzle-pieces {
+    display: grid;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.puzzle-pieces.level-1 {
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+}
+
+.puzzle-pieces.level-2 {
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+}
+
+.puzzle-pieces.level-3 {
+    grid-template-columns: repeat(5, 85px);
+    grid-template-rows: repeat(5, 85px);
+}
+
+.puzzle-cell {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.puzzle-cell.drop-active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+.puzzle-piece {
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    cursor: move;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.puzzle-piece:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.puzzle-piece.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.puzzle-piece.placed {
+    cursor: default;
+    animation: placeSuccess 0.5s ease;
+}
+
+@keyframes placeSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.hint-box {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 182, 193, 0.3));
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    animation: hintGlow 2s ease-in-out infinite;
+}
+
+@keyframes hintGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+}
+
+.hint-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ============ ÉTAPE 3: JEU MÉMOIRE ============ */
+.memory-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.memory-card {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    animation: matchSuccess 0.6s ease;
+    pointer-events: none;
+}
+
+@keyframes matchSuccess {
+    0%, 100% { transform: rotateY(180deg) scale(1); }
+    50% { transform: rotateY(180deg) scale(1.2); }
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-front {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    font-size: 48px;
+}
+
+.card-back {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+
+/* ============ ÉTAPE 4: CHERCHE ET TROUVE ============ */
+.search-stats {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.composite-image {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.composite-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.hidden-heart {
+    position: absolute;
+    font-size: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: heartPulse 2s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.hidden-heart:hover {
+    transform: scale(1.5);
+    filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.8));
+}
+
+.hidden-heart.found {
+    animation: heartFound 0.8s ease forwards;
+}
+
+@keyframes heartFound {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(2) rotate(360deg); }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.love-message-display {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: messageAppear 0.5s ease;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.love-message-card {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    border: 2px solid rgba(255, 182, 193, 0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.love-message-card p {
+    font-size: 22px;
+    line-height: 1.8;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ============ ÉTAPE 5: PENDU ============ */
+.hangman-level-indicator {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.hangman-game {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hangman-lives {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hangman-lives span {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hearts-lives {
+    font-size: 30px;
+}
+
+.hearts-lives span {
+    display: inline-block;
+    margin: 0 5px;
+    transition: all 0.3s;
+}
+
+.hearts-lives span.lost {
+    opacity: 0.2;
+    transform: scale(0.5);
+}
+
+.word-display {
+    text-align: center;
+    font-size: 48px;
+    letter-spacing: 10px;
+    margin: 40px 0;
+    font-family: monospace;
+}
+
+.letter-box {
+    display: inline-block;
+    width: 50px;
+    height: 60px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+    line-height: 60px;
+    font-weight: bold;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.key {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.key:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.key.used {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.key.correct {
+    background: rgba(76, 175, 80, 0.5);
+    border-color: #4caf50;
+}
+
+.key.wrong {
+    background: rgba(244, 67, 54, 0.5);
+    border-color: #f44336;
+}
+
+/* ============ ÉTAPE 6: MESSAGES FLOTTANTS ============ */
+.floating-messages-container {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-message {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    animation: floatIn 1s ease forwards;
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.floating-message p {
+    font-size: 20px;
+    line-height: 1.8;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ============ ÉTAPE 7: LA QUESTION ============ */
+.question-container {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.big-question {
+    font-size: 48px;
+    margin-bottom: 15px;
+    animation: questionGlow 2s ease-in-out infinite;
+}
+
+@keyframes questionGlow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(255, 255, 255, 0.8),
+                     0 0 60px rgba(255, 182, 193, 0.6);
+    }
+}
+
+.question-subtitle {
+    font-size: 22px;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+    min-height: 80px;
+}
+
+.btn-yes, .btn-no {
+    padding: 20px 60px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #fff;
+}
+
+.btn-yes:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+}
+
+.btn-no {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    position: relative;
+    transition: all 0.2s ease;
+    margin-left: 30px;
+}
+
+.escape-message {
+    font-size: 18px;
+    min-height: 30px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* ============ ÉTAPE 8: VIDÉO ============ */
+.video-intro {
+    margin-bottom: 30px;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+}
+
+/* ============ ÉTAPE 9: RÉVÉLATION ============ */
+.reveal-phase {
+    position: relative;
+    min-height: 100vh;
+}
+
+#reveal-phase1 {
+    background: #000;
+}
+
+.reveal-text-container {
+    text-align: center;
+}
+
+.reveal-text {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease;
+}
+
+.delay-1 {
+    animation-delay: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.delay-2 {
+    animation-delay: 2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.reveal-countdown {
+    font-size: 120px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+#reveal-countdown-num {
+    animation: countdownPulse 1s ease infinite;
+}
+
+@keyframes countdownPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Flash overlay */
+.flash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.flash-overlay.flash {
+    animation: flashEffect 0.5s ease;
+}
+
+@keyframes flashEffect {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Particules de diamants */
+.diamond-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.parure-reveal {
+    position: relative;
+    z-index: 10;
+}
+
+.parure-title {
+    font-size: 48px;
+    text-align: center;
+    margin: 40px 0;
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(255, 215, 0, 0.8),
+                     0 0 60px rgba(255, 215, 0, 0.6);
+    }
+}
+
+/* ============ CARROUSEL 3D ============ */
+.carousel-3d {
+    margin: 50px 0;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: scale(0.7) translateX(-100%);
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    z-index: 10;
+}
+
+.carousel-item.prev {
+    opacity: 0.5;
+    transform: scale(0.8) translateX(-80%);
+    z-index: 5;
+}
+
+.carousel-item.next {
+    opacity: 0.5;
+    transform: scale(0.8) translateX(80%);
+    z-index: 5;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-item.active img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 20;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: -80px;
+}
+
+.carousel-btn.next {
+    right: -80px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: rgba(255, 215, 0, 0.8);
+    transform: scale(1.3);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* ============ MESSAGE FINAL ============ */
+.final-letter {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 50px auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.love-text {
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.love-signature {
+    font-size: 20px;
+    text-align: right;
+    font-style: italic;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* ============ COMPTE À REBOURS ============ */
+.countdown-section {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.countdown-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    min-width: 120px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-number {
+    font-size: 48px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-label {
+    font-size: 16px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.countdown-subtitle {
+    font-size: 20px;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+.final-hearts {
+    font-size: 48px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.final-hearts span {
+    display: inline-block;
+    margin: 0 10px;
+    animation: heartFloat 2s ease-in-out infinite;
+}
+
+.final-hearts span:nth-child(1) { animation-delay: 0s; }
+.final-hearts span:nth-child(2) { animation-delay: 0.2s; }
+.final-hearts span:nth-child(3) { animation-delay: 0.4s; }
+.final-hearts span:nth-child(4) { animation-delay: 0.6s; }
+.final-hearts span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes heartFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.2); }
+}
+
+/* ============ FEUX D'ARTIFICE ============ */
+.fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    .glowing-text { font-size: 32px; }
+    .section-title { font-size: 28px; }
+    .big-question { font-size: 32px; }
+    .parure-title { font-size: 32px; }
+    
+    .puzzle-board.level-1, .puzzle-pieces.level-1 {
+        grid-template-columns: repeat(3, 90px);
+        grid-template-rows: repeat(3, 90px);
+    }
+    
+    .puzzle-board.level-2, .puzzle-pieces.level-2 {
+        grid-template-columns: repeat(4, 70px);
+        grid-template-rows: repeat(4, 70px);
+    }
+    
+    .puzzle-board.level-3, .puzzle-pieces.level-3 {
+        grid-template-columns: repeat(5, 55px);
+        grid-template-rows: repeat(5, 55px);
+    }
+    
+    .memory-grid {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(4, 100px);
+        gap: 10px;
+    }
+    
+    .memory-card {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .composite-image {
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 400px;
+    }
+    
+    .composite-photo {
+        height: 150px;
+    }
+    
+    .word-display {
+        font-size: 32px;
+        letter-spacing: 5px;
+    }
+    
+    .letter-box {
+        width: 35px;
+        height: 45px;
+        line-height: 45px;
+        margin: 0 2px;
+    }
+    
+    .keyboard {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 8px;
+    }
+    
+    .key {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .btn-no {
+        position: relative;
+    }
+    
+    .carousel-item {
+        width: 90%;
+        height: 300px;
+    }
+    
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .carousel-btn.prev {
+        left: 10px;
+    }
+    
+    .carousel-btn.next {
+        right: 10px;
+    }
+    
+    .final-letter {
+        padding: 25px;
+    }
+    
+    .love-text {
+        font-size: 16px;
+        text-align: left;
+    }
+    
+    .countdown {
+        gap: 15px;
+    }
+    
+    .countdown-item {
+        min-width: 80px;
+        padding: 15px;
+    }
+    
+    .countdown-number {
+        font-size: 32px;
+    }
+    
+    .reveal-countdown {
+        font-size: 80px;
+    }
+}
+
+/* ============ COFFRE 3D ============ */
+#chest-container {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.treasure-chest {
+    position: relative;
+    width: 300px;
+    height: 250px;
+    margin: 50px auto;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.treasure-chest:hover {
+    transform: scale(1.05);
+}
+
+.chest-body {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+    border: 4px solid #654321;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6),
+                inset 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chest-body::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: rgba(101, 67, 33, 0.5);
+    border-radius: 5px;
+}
+
+.chest-lid {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+    border: 4px solid #654321;
+    border-radius: 25px 25px 0 0;
+    transform-origin: bottom;
+    transition: transform 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4),
+                inset 0 -5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.chest-lid::before {
+    content: '🔒';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    transition: opacity 0.5s;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.chest-lid::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 40px;
+    background: rgba(139, 69, 19, 0.3);
+    border-radius: 10px;
+    border: 2px solid rgba(101, 67, 33, 0.5);
+}
+
+.treasure-chest.opening .chest-lid {
+    transform: rotateX(-130deg);
+}
+
+.treasure-chest.opening .chest-lid::before {
+    opacity: 0;
+}
+
+.chest-glow {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: radial-gradient(circle at center, 
+                rgba(255, 215, 0, 0.8) 0%, 
+                rgba(255, 215, 0, 0.4) 30%,
+                transparent 70%);
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    pointer-events: none;
+}
+
+.treasure-chest.opening .chest-glow {
+    opacity: 1;
+    animation: glowExpand 2s ease-in-out;
+}
+
+@keyframes glowExpand {
+    0% { 
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% { 
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% { 
+        transform: scale(2);
+        opacity: 0.6;
+    }
+}
+
+.chest-sparkles {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 70px;
+    opacity: 0;
+    transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+}
+
+.treasure-chest.opening .chest-sparkles {
+    opacity: 1;
+    top: -150px;
+    font-size: 90px;
+    animation: sparkleRotate 2s ease-in-out;
+}
+
+@keyframes sparkleRotate {
+    0%, 100% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-50%) rotate(15deg) scale(1.2); }
+    75% { transform: translateX(-50%) rotate(-15deg) scale(1.2); }
+}
+
+.click-instruction {
+    text-align: center;
+    font-size: 26px;
+    margin-top: 50px;
+    animation: bounce 2s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@media (max-width: 768px) {
+    .treasure-chest {
+        width: 250px;
+        height: 200px;
+    }
+    
+    .chest-body {
+        height: 120px;
+    }
+    
+    .chest-lid {
+        height: 80px;
+        top: -80px;
+    }
+    
+    .chest-lid::before {
+        font-size: 35px;
+    }
+    
+    .chest-sparkles {
+        font-size: 50px;
+    }
+    
+    .treasure-chest.opening .chest-sparkles {
+        font-size: 60px;
+        top: -100px;
+    }
+    
+    .click-instruction {
+        font-size: 20px;
+    }
+}

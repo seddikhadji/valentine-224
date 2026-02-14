@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour ma 224 💝</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Particules de fond -->
+    <div id="particles"></div>
+    
+    <!-- ÉTAPE 1: Code Secret + Animation Cinématique -->
+    <div id="step-login" class="step active">
+        <div class="container">
+            <div class="heart-icon animate-heartbeat">💝</div>
+            <h1 class="glowing-text">Pour Toi, Ma 224</h1>
+            <p class="subtitle">Une aventure magique t'attend...</p>
+            <div class="input-group">
+                <input type="text" id="secret-code" placeholder="Entre le code secret..." maxlength="20">
+                <button onclick="checkCode()" class="btn-primary">Déverrouiller 🔓</button>
+            </div>
+            <p id="error-msg" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- Animation Cinématique de Transition -->
+    <div id="cinematic-intro" class="cinematic-screen hidden">
+        <div class="cinematic-content">
+            <h1 class="cinematic-title">Bienvenue dans ton aventure, ma 224...</h1>
+            <p class="cinematic-subtitle">Prépare-toi pour quelque chose de spécial 💫</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 2: Puzzles Évolutifs (3 niveaux) -->
+    <div id="step-puzzles" class="step">
+        <div class="container">
+            <h2 class="section-title">Reconstitue Nos Moments 🧩</h2>
+            <div class="puzzle-level-indicator">
+                <span id="current-level">Niveau 1/3</span>
+            </div>
+            <p class="instruction" id="puzzle-instruction">Glisse les pièces pour recréer notre photo...</p>
+            
+            <div class="puzzle-container">
+                <div id="puzzle-board" class="puzzle-board"></div>
+                <div id="puzzle-pieces" class="puzzle-pieces"></div>
+            </div>
+            
+            <div id="puzzle-hint" class="hint-box hidden">
+                <p class="hint-text"></p>
+            </div>
+            
+            <div id="puzzle-complete" class="hidden">
+                <div class="success-animation">✨ Parfait ! ✨</div>
+                <button onclick="nextPuzzleLevel()" class="btn-primary" id="btn-next-puzzle">Niveau suivant →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 3: Jeu de Mémoire -->
+    <div id="step-memory" class="step">
+        <div class="container">
+            <h2 class="section-title">Nos Souvenirs 🃏</h2>
+            <p class="instruction">Trouve toutes les paires de photos !</p>
+            
+            <div class="memory-stats">
+                <span>Paires trouvées: <strong id="pairs-found">0/6</strong></span>
+                <span>Essais: <strong id="attempts">0</strong></span>
+            </div>
+            
+            <div id="memory-grid" class="memory-grid"></div>
+            
+            <div id="memory-complete" class="hidden">
+                <div class="success-animation">🎉 Tous nos souvenirs réunis ! 🎉</div>
+                <button onclick="nextStep('search')" class="btn-primary">Continuer →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 4: Cherche et Trouve -->
+    <div id="step-search" class="step">
+        <div class="container">
+            <h2 class="section-title">Trouve les Cœurs Cachés 💕</h2>
+            <p class="instruction">5 cœurs se cachent dans nos photos... Chacun révèle un message d'amour</p>
+            
+            <div class="search-stats">
+                <span>Cœurs trouvés: <strong id="hearts-found">0/5</strong></span>
+            </div>
+            
+            <div id="search-container" class="search-container">
+                <div id="composite-image" class="composite-image">
+                    <!-- Les cœurs cachés seront générés ici -->
+                </div>
+            </div>
+            
+            <div id="love-message-display" class="love-message-display hidden">
+                <div class="love-message-card">
+                    <p id="current-love-message"></p>
+                </div>
+            </div>
+            
+            <div id="search-complete" class="hidden">
+                <div class="success-animation">💖 Tous les messages découverts ! 💖</div>
+                <button onclick="nextStep('hangman')" class="btn-primary">Continuer →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 5: Pendu Romantique -->
+    <div id="step-hangman" class="step">
+        <div class="container">
+            <h2 class="section-title">Devine les Mots 🎯</h2>
+            <div class="hangman-level-indicator">
+                <span id="hangman-level">Mot 1/3</span>
+            </div>
+            <p class="instruction" id="hangman-hint">Indice apparaîtra ici...</p>
+            
+            <div class="hangman-game">
+                <div class="hangman-lives">
+                    <span>Vies restantes: <strong id="lives-remaining">6</strong></span>
+                    <div class="hearts-lives" id="hearts-lives">
+                        <span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span><span>❤️</span>
+                    </div>
+                </div>
+                
+                <div id="word-display" class="word-display"></div>
+                
+                <div id="keyboard" class="keyboard"></div>
+                
+                <div id="hangman-result" class="hidden">
+                    <p id="hangman-result-text"></p>
+                    <button onclick="nextHangmanWord()" class="btn-primary" id="btn-next-word">Mot suivant →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 6: Messages d'Amour Flottants -->
+    <div id="step-messages" class="step">
+        <div class="container">
+            <h2 class="section-title">Ce Que Mon Cœur Veut Te Dire 💌</h2>
+            <div id="floating-messages-container" class="floating-messages-container"></div>
+            <button onclick="nextStep('question')" class="btn-primary" id="btn-messages-next" style="display: none; margin-top: 40px;">Continuer →</button>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 7: La Question Valentine -->
+    <div id="step-question" class="step">
+        <div class="container">
+            <div class="question-container">
+                <h2 class="big-question">Veux-tu être ma Valentine ? 💝</h2>
+                <p class="question-subtitle">Le 14 février 2026</p>
+                
+                <div class="buttons-container">
+                    <button id="btn-yes" onclick="handleYes()" class="btn-yes">OUI 💕</button>
+                    <button id="btn-no" class="btn-no">Non</button>
+                </div>
+                
+                <p id="escape-message" class="escape-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 8: Vidéo Personnalisée -->
+    <div id="step-video" class="step">
+        <div class="container">
+            <div class="video-intro">
+                <h2 class="section-title">Un Message Spécial Pour Toi 🎬</h2>
+                <p class="instruction">Regarde cette vidéo avant la surprise finale...</p>
+            </div>
+            
+            <div class="video-container">
+                <video id="personal-video" controls>
+                    <source src="message-video.mp4" type="video/mp4">
+                    Ton navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
+            
+            <button onclick="nextStep('reveal')" class="btn-primary" style="margin-top: 30px;">Découvrir la surprise finale →</button>
+        </div>
+    </div>
+
+    <!-- ÉTAPE 9: Révélation de la Parure -->
+    <div id="step-reveal" class="step">
+        <!-- Phase 1: Écran noir avec texte -->
+        <div id="reveal-phase1" class="reveal-phase">
+            <div class="container">
+                <div class="reveal-text-container">
+                    <h2 class="reveal-text fade-in">Mais ce n'est pas fini...</h2>
+                    <p class="reveal-text fade-in delay-1">Une dernière surprise t'attend...</p>
+                    <div class="reveal-countdown fade-in delay-2">
+                        <span id="reveal-countdown-num">3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Phase 2: Coffre 3D -->
+        <div id="reveal-phase2" class="reveal-phase hidden">
+            <div class="container">
+                <div id="chest-container">
+                    <div class="treasure-chest" id="treasure-chest" onclick="openChest()">
+                        <div class="chest-sparkles">✨💎✨</div>
+                        <div class="chest-glow"></div>
+                        <div class="chest-lid"></div>
+                        <div class="chest-body"></div>
+                    </div>
+                    <p class="click-instruction">👆 Clique sur le coffre pour l'ouvrir 👆</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Phase 3: Parure révélée -->
+        <div id="reveal-phase3" class="reveal-phase hidden">
+            <div class="flash-overlay"></div>
+            <div class="container">
+                <div class="parure-reveal">
+                    <div class="diamond-particles"></div>
+                    
+                    <h2 class="parure-title">Ta Parure de Mariage 💎</h2>
+                    
+                    <!-- Carrousel 3D -->
+                    <div class="carousel-3d">
+                        <div class="carousel-container">
+                            <button class="carousel-btn prev" onclick="rotateCarousel(-1)">←</button>
+                            <div id="carousel-track" class="carousel-track">
+                                <div class="carousel-item active">
+                                    <img src="parure1.jpg" alt="Parure 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="parure2.jpg" alt="Parure 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="parure3.jpg" alt="Parure 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="parure4.jpg" alt="Parure 4">
+                                </div>
+                            </div>
+                            <button class="carousel-btn next" onclick="rotateCarousel(1)">→</button>
+                        </div>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="goToSlide(0)"></span>
+                            <span class="dot" onclick="goToSlide(1)"></span>
+                            <span class="dot" onclick="goToSlide(2)"></span>
+                            <span class="dot" onclick="goToSlide(3)"></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Message Final -->
+                    <div class="final-letter">
+                        <p class="love-text">Ma 224, mon amour,</p>
+                        
+                        <p class="love-text">
+                            Cette parure de diamants sera tienne le 30 juillet 2026.
+                        </p>
+                        
+                        <p class="love-text">
+                            Le jour où tu deviendras ma femme devant tous ceux qu'on aime.
+                            Le jour où je pourrai enfin t'appeler "mon épouse" pour l'éternité.
+                        </p>
+                        
+                        <p class="love-text">
+                            Cette parure brillera sur toi, mais jamais autant que tes yeux 
+                            quand tu marcheras vers moi dans ta robe de mariée.
+                        </p>
+                        
+                        <p class="love-text">
+                            Je t'aime, ma future femme. Pour toujours. 💍
+                        </p>
+                        
+                        <p class="love-signature">Ton futur mari, pour l'éternité 💎</p>
+                    </div>
+                    
+                    <!-- Compte à Rebours -->
+                    <div class="countdown-section">
+                        <h3 class="countdown-title">Plus que...</h3>
+                        <div id="countdown" class="countdown"></div>
+                        <p class="countdown-subtitle">Jusqu'à ce que tu portes cette parure à notre mariage 💒</p>
+                    </div>
+                    
+                    <div class="final-hearts">
+                        <span>💕</span><span>💖</span><span>💗</span><span>💝</span><span>💕</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Feux d'artifice -->
+        <div class="fireworks"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
