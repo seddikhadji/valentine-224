@@ -3,7 +3,7 @@
 // ============================================
 
 // ============ CONFIGURATION ============
-const SECRET_CODE = "MYLOVE224";
+const SECRET_CODE = "22498201711";
 const WEDDING_DATE = new Date("2026-07-30T00:00:00");
 
 // Messages d'amour pour "Cherche et Trouve"
